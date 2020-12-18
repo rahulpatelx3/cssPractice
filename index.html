@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>Layout</title>
+	<meta type="viewport" content="width=device-width,initial-scale:1.0" />
+	<style>
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html
+		{
+			scroll-behavior: smooth;
+			scroll-snap-type: Y mandatory;
+		}
+		body
+		{
+			font-family: arial,helvetica;
+			background-color: slategrey;
+		}
+		body::-webkit-scrollbar
+		{
+			width: 10px;
+			right: 4px;
+		}
+		body::-webkit-scrollbar-track
+		{
+			border-radius: 5px;
+			background-color: rgb(14, 10, 224);
+		}
+		body::-webkit-scrollbar-thumb
+		{
+			background-color: springgreen;
+			height: 20px;
+		}
+		div
+		{
+			border:2px solid black;
+			border-radius: 4px;
+			background-color: #fff;
+            width: 95%;
+            margin: 0px auto;
+		}
+		header
+		{
+			background-color: tan;
+			height: 60px;
+			padding: 10px;
+		}
+		header h1
+		{
+			color: #0000ff;
+			text-shadow: 3px 2px 3px black;
+		}
+		header h1 input
+		{
+			border: none;
+			float: right;
+			height: 30px;
+			border-radius: 5px;
+		}
+		header h1 input:focus
+		{
+			border-color: lightseagreen;
+		}
+		header h1 input::placeholder
+		{
+			text-align: center;
+			font-size: 16px;
+			color: black;
+		}
+		nav
+		{
+			background: green;
+			position: sticky;
+			top:0px;
+		}
+		nav li
+		{
+			display: inline-block;
+			list-style-type: none;
+			cursor: context-menu;
+			margin-left: 40px;
+		}
+		nav li a
+		{
+			display: block;
+			text-decoration: none;
+			padding: 10px 5px;
+			color: yellow;
+		}
+		nav li a:hover
+		{
+			background-color: yellow;
+			color: blue;
+			transition: all .5s ease;
+		}
+		main
+		{
+			scroll-snap-align: start;
+		}
+		section
+		{
+			padding-top: 40px;
+		}
+		#section1
+		{
+			width: 80%;
+			float: left;
+			height: 535px;
+			overflow: auto;
+		}
+		#section1 h2
+		{
+			padding: 10px;
+		}
+		#section1 p
+		{
+			padding: 5px;
+			word-wrap: unset;
+		}
+		aside
+		{
+			background-color: lightblue;
+			width: 20%;
+			float: right;
+			min-height: 535px;
+		}
+		aside ul
+		{
+			margin-top: 140px;
+		}
+		aside li
+		{
+			list-style-type: none;
+			text-align: center;
+			margin: 20px 0px;
+		}
+		aside li a
+		{
+			text-decoration: none;
+			color: black;
+		}
+		aside li a:hover
+		{
+			color: blue;
+			background-color: tan;
+			transition: all .5s ease;
+		}
+		#section2
+		{
+			clear: both;
+			background: tan;
+			padding:4px 0px;
+			display: flow-root;
+			position: sticky!important;
+			bottom: 0px;
+		}
+		#section3
+		{
+			background-color: lightgreen;
+			scroll-snap-align: start;
+		}
+		#section3 form
+		{
+			width: 600px;
+			margin: 0px auto;
+			padding: 10px;
+		}
+		#section3 fieldset
+		{
+			border-radius: 10px;
+			padding: 20px auto;
+		}
+		#section3 legend
+		{
+			text-align: center;
+			font-size: 18px;
+			font-style: bold;
+		}
+		#section3 form label,input
+		{
+			margin-left: 200px;
+		}
+		#submit
+		{
+			margin-left: 260px;
+			padding: 3px 8px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			border: 0px;
+			background-color: blue;
+			color: #fff;
+		}
+		#section4,#section5,#section6
+		{
+			padding-left: 20px;
+			width: 100%;
+			height: 100vh;
+			scroll-snap-align: center;
+		}
+		#section4
+		{
+			background-color: lightseagreen;
+		}
+		#section5
+		{
+			background-color: rgb(21, 177, 130);
+		}
+		#section6
+		{
+			background-color: rgb(148, 28, 228);
+			height: 90vh;
+		}
+		#section4,#section5,#section6 p
+		{
+			overflow-y: auto;
+		}
+		footer
+		{
+			height: 100%;
+			background-color: crimson;
+			text-align: center;
+			padding: 5px 0px;
+			font-size:16px;
+			text-shadow: 2px 2px 4px black;
+		}
+		@media screen and (max-width: 480px)
+		{
+			header h1
+			{
+				text-align: center;
+			}
+			header input
+			{
+				display: none;
+			}
+			nav li
+			{
+				margin-left: 10px;
+			}
+			#section1
+			{
+				width: 100%;
+				float: none;
+			}
+			aside
+			{
+				display: none;
+				float: none;
+			}
+			#section3 form
+			{
+				width: 100px;
+				margin-right: 500px;
+			}
+			#section4,#section5,#section6
+			{
+				height: 95vh;
+			}
+			#section4,#section5,#section6 p
+			{
+				overflow-y: auto;
+			}
+		}
+	</style>
+</head>
+<body>
+<div>	
+	<header id="head">
+		<h1>Patel Technical
+			<input type="text" placeholder="Search Here" autofocus/>
+		</h1>
+	</header>
+	<nav>
+		<ul>
+			<li>
+				<a href="#head">Home</a>
+			</li>
+			<li>
+				<a href="#section4">Services</a>
+			</li>
+			<li>
+				<a href="#section3">Contact</a>
+			</li>
+			<li>
+				<a href="#section5">About</a>
+			</li>
+			<li>
+				<a href="#section6">Help</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<section id="section1">
+			<h2>Design Basic Layout</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</section>
+		<aside>
+			<ul>
+				<li>
+					<a href="#head">Home</a>
+				</li>
+				<li>
+					<a href="#section4">Services</a>
+				</li>
+				<li>
+					<a href="#section3">Contact</a>
+				</li>
+				<li>
+					<a href="#section5">About</a>
+				</li>
+				<li>
+					<a href="#section6">Help</a>
+				</li>
+			</ul>
+		</aside>
+		<hr>
+		<section id="section2">
+			<marquee direction="left" scrollamount="5" behavior="fixed" onMouseOver="this.stop()" onMouseOut="this.start()">
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed 
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</marquee>
+		</section>
+		<section id="section3">
+			<form>
+				<fieldset>
+					<legend>Survey Form</legend>
+					<label for="name">Name:</label>
+					<br>
+					<input type="text" name="name" id="name" placeholder="Enter FullName">
+					<br>
+					<label for="email">Email:</label>
+					<br>
+					<input type="email" name="name" id="email" placeholder="xyz@gmail.com">
+					<br>
+					<label for="mobile">Mobile:</label>
+					<br>
+					<input type="number" name="mobile" id="mobile" placeholder="Mobile Number">
+					<br>
+					<input type="submit" name="submit" id="submit" value="submit">
+				</fieldset>
+			</form>
+		</section>
+		<section id="section4">
+			<h2>
+				Services
+			</h2>
+			<p>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti optio, quisquam doloribus nam inventore ipsam maiores neque sed obcaecati placeat incidunt quod porro. Quia nulla fuga eaque distinctio iure, saepe officiis cum temporibus aperiam tenetur maiores perferendis tempore blanditiis facere laboriosam excepturi. Eum rerum eligendi soluta temporibus error. Nostrum possimus aperiam suscipit dignissimos ut laborum corporis atque unde odit, dolore modi autem praesentium, esse quam facere, dolorum provident cum recusandae tenetur numquam ipsa? Vero ea neque autem expedita laudantium minus accusamus! Impedit a sunt quo sint molestias ipsum doloremque eaque reiciendis quia, facilis vero eos magnam ullam architecto sequi adipisci corrupti aperiam possimus quos enim nisi cum! Quam architecto magni suscipit. Adipisci quia aspernatur quidem exercitationem autem veniam dignissimos dicta placeat? Ducimus quaerat quos sapiente nisi corrupti, architecto vero culpa eligendi iusto, unde ea ullam quod, praesentium veniam et aspernatur molestiae! Explicabo repellat corporis quod amet reprehenderit nam distinctio, excepturi quibusdam fugiat debitis veniam molestias velit nemo totam ut corrupti possimus pariatur non ullam. Velit quas deserunt, quibusdam reiciendis ad veritatis obcaecati, fugit repudiandae cum quam nemo voluptas, quod aut! Minus animi error dolores ex nobis officia cumque autem nostrum et eum, consequatur dolorem, facere libero voluptate cum fugit rem eos? Iusto quia id, dicta dolores quas beatae, illum aliquam velit fugiat vel aperiam obcaecati, provident explicabo error suscipit illo excepturi earum possimus sapiente veniam laboriosam. Reiciendis minus fugit ut aut quam placeat vel possimus dolores, alias odio explicabo quibusdam tempore minima unde libero dolor optio iusto fugiat eveniet error, non, aspernatur veniam laudantium. Quisquam, totam, hic minus recusandae facilis repellat nisi dolor explicabo sint dignissimos temporibus tenetur autem consectetur similique architecto veniam eos, odit rem. Asperiores, cumque facere nulla quidem earum excepturi. Architecto itaque doloribus sunt reiciendis repellendus pariatur saepe officia incidunt, facilis praesentium at rem quidem sequi adipisci explicabo, error cumque assumenda! Accusantium, pariatur facere debitis atque harum itaque ea eligendi commodi vitae molestias alias et magni praesentium tenetur reprehenderit tempore porro perspiciatis quos quasi reiciendis. Corporis iusto repudiandae quia. Ea nisi voluptatem voluptatum possimus vero natus animi quis, ducimus esse cupiditate culpa aliquid corporis saepe necessitatibus eum dolore. Maxime, dolore harum ex aliquid molestias soluta laborum eos vero atque, consectetur modi, praesentium asperiores! Inventore non cum earum repellat sint possimus ipsa minima veritatis, sunt illum sapiente, dolorem, atque alias necessitatibus asperiores! Nam saepe, dicta velit ratione minus itaque iste optio eligendi voluptates dolorem, porro pariatur recusandae cupiditate.
+			</p>
+		</section>
+		<section id="section5">
+			<h2>
+				About
+			</h2>
+			<p>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti optio, quisquam doloribus nam inventore ipsam maiores neque sed obcaecati placeat incidunt quod porro. Quia nulla fuga eaque distinctio iure, saepe officiis cum temporibus aperiam tenetur maiores perferendis tempore blanditiis facere laboriosam excepturi. Eum rerum eligendi soluta temporibus error. Nostrum possimus aperiam suscipit dignissimos ut laborum corporis atque unde odit, dolore modi autem praesentium, esse quam facere, dolorum provident cum recusandae tenetur numquam ipsa? Vero ea neque autem expedita laudantium minus accusamus! Impedit a sunt quo sint molestias ipsum doloremque eaque reiciendis quia, facilis vero eos magnam ullam architecto sequi adipisci corrupti aperiam possimus quos enim nisi cum! Quam architecto magni suscipit. Adipisci quia aspernatur quidem exercitationem autem veniam dignissimos dicta placeat? Ducimus quaerat quos sapiente nisi corrupti, architecto vero culpa eligendi iusto, unde ea ullam quod, praesentium veniam et aspernatur molestiae! Explicabo repellat corporis quod amet reprehenderit nam distinctio, excepturi quibusdam fugiat debitis veniam molestias velit nemo totam ut corrupti possimus pariatur non ullam. Velit quas deserunt, quibusdam reiciendis ad veritatis obcaecati, fugit repudiandae cum quam nemo voluptas, quod aut! Minus animi error dolores ex nobis officia cumque autem nostrum et eum, consequatur dolorem, facere libero voluptate cum fugit rem eos? Iusto quia id, dicta dolores quas beatae, illum aliquam velit fugiat vel aperiam obcaecati, provident explicabo error suscipit illo excepturi earum possimus sapiente veniam laboriosam. Reiciendis minus fugit ut aut quam placeat vel possimus dolores, alias odio explicabo quibusdam tempore minima unde libero dolor optio iusto fugiat eveniet error, non, aspernatur veniam laudantium. Quisquam, totam, hic minus recusandae facilis repellat nisi dolor explicabo sint dignissimos temporibus tenetur autem consectetur similique architecto veniam eos, odit rem. Asperiores, cumque facere nulla quidem earum excepturi. Architecto itaque doloribus sunt reiciendis repellendus pariatur saepe officia incidunt, facilis praesentium at rem quidem sequi adipisci explicabo, error cumque assumenda! Accusantium, pariatur facere debitis atque harum itaque ea eligendi commodi vitae molestias alias et magni praesentium tenetur reprehenderit tempore porro perspiciatis quos quasi reiciendis. Corporis iusto repudiandae quia. Ea nisi voluptatem voluptatum possimus vero natus animi quis, ducimus esse cupiditate culpa aliquid corporis saepe necessitatibus eum dolore. Maxime, dolore harum ex aliquid molestias soluta laborum eos vero atque, consectetur modi, praesentium asperiores! Inventore non cum earum repellat sint possimus ipsa minima veritatis, sunt illum sapiente, dolorem, atque alias necessitatibus asperiores! Nam saepe, dicta velit ratione minus itaque iste optio eligendi voluptates dolorem, porro pariatur recusandae cupiditate.
+			</p>
+		</section>
+		<section id="section6">
+			<h2>
+				Help
+			</h2>
+			<p>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti optio, quisquam doloribus nam inventore ipsam maiores neque sed obcaecati placeat incidunt quod porro. Quia nulla fuga eaque distinctio iure, saepe officiis cum temporibus aperiam tenetur maiores perferendis tempore blanditiis facere laboriosam excepturi. Eum rerum eligendi soluta temporibus error. Nostrum possimus aperiam suscipit dignissimos ut laborum corporis atque unde odit, dolore modi autem praesentium, esse quam facere, dolorum provident cum recusandae tenetur numquam ipsa? Vero ea neque autem expedita laudantium minus accusamus! Impedit a sunt quo sint molestias ipsum doloremque eaque reiciendis quia, facilis vero eos magnam ullam architecto sequi adipisci corrupti aperiam possimus quos enim nisi cum! Quam architecto magni suscipit. Adipisci quia aspernatur quidem exercitationem autem veniam dignissimos dicta placeat? Ducimus quaerat quos sapiente nisi corrupti, architecto vero culpa eligendi iusto, unde ea ullam quod, praesentium veniam et aspernatur molestiae! Explicabo repellat corporis quod amet reprehenderit nam distinctio, excepturi quibusdam fugiat debitis veniam molestias velit nemo totam ut corrupti possimus pariatur non ullam. Velit quas deserunt, quibusdam reiciendis ad veritatis obcaecati, fugit repudiandae cum quam nemo voluptas, quod aut! Minus animi error dolores ex nobis officia cumque autem nostrum et eum, consequatur dolorem, facere libero voluptate cum fugit rem eos? Iusto quia id, dicta dolores quas beatae, illum aliquam velit fugiat vel aperiam obcaecati, provident explicabo error suscipit illo excepturi earum possimus sapiente veniam laboriosam. Reiciendis minus fugit ut aut quam placeat vel possimus dolores, alias odio explicabo quibusdam tempore minima unde libero dolor optio iusto fugiat eveniet error, non, aspernatur veniam laudantium. Quisquam, totam, hic minus recusandae facilis repellat nisi dolor explicabo sint dignissimos temporibus tenetur autem consectetur similique architecto veniam eos, odit rem. Asperiores, cumque facere nulla quidem earum excepturi. Architecto itaque doloribus sunt reiciendis repellendus pariatur saepe officia incidunt, facilis praesentium at rem quidem sequi adipisci explicabo, error cumque assumenda! Accusantium, pariatur facere debitis atque harum itaque ea eligendi commodi vitae molestias alias et magni praesentium tenetur reprehenderit tempore porro perspiciatis quos quasi reiciendis. Corporis iusto repudiandae quia. Ea nisi voluptatem voluptatum possimus vero natus animi quis, ducimus esse cupiditate culpa aliquid corporis saepe necessitatibus eum dolore. Maxime, dolore harum ex aliquid molestias soluta laborum eos vero atque, consectetur modi, praesentium asperiores! Inventore non cum earum repellat sint possimus ipsa minima veritatis, sunt illum sapiente, dolorem, atque alias necessitatibus asperiores! Nam saepe, dicta velit ratione minus itaque iste optio eligendi voluptates dolorem, porro pariatur recusandae cupiditate.
+			</p>
+		</section>
+	</main>
+	<footer>
+		PatelTechnical@Copyright 2020
+	</footer>
+</div>	
+</body>
+</html>
